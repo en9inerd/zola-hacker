@@ -137,4 +137,4 @@ If your problem or idea is not addressed yet, [open a new issue](https://github.
 ## License
 
 **Zola Hacker Theme** is distributed under the terms of the
-[MIT license](https://github.com/en9inerd/zola-hacker/blob/main/LICENSE).
+[MIT license](https://github.com/en9inerd/zola-hacker/blob/master/LICENSE).
