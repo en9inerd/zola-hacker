@@ -1,0 +1,14 @@
+{%- include "partials/svg-icons.html" -%}
+{%- if page.relative_path and 'about.md' in page.relative_path and config.extra.pgp_key %}
+<p class="pgp-key">
+  <a href="{{ config.extra.pgp_key.url }}">PGP:
+    <code>{{ config.extra.pgp_key.fingerprint }}</code>
+  </a>
+</p>
+{%- endif -%}
+{%- set section = get_section(path="posts/_index.md") -%}
+{%- set earliest_post = section.pages | last -%}
+{%- set earliest_date = earliest_post.date | date(format="%Y") -%}
+{% set current_date = now() | date(format="%Y") %}
+<span class="copyright">&copy; {{ earliest_date }}{% if earliest_date != current_date %} - {{ current_date }}{% endif %} {{
+  config.author }}</span>

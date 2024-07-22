@@ -1,0 +1,51 @@
+- platform: dribble
+  url: https://dribbble.com/
+  icon: dribble
+
+- platform: email
+  url: 'mailto:'
+  icon: mail
+
+- platform: facebook
+  url: https://www.facebook.com/
+  icon: facebook
+
+- platform: flickr
+  url: https://www.flickr.com/
+  icon: flickr
+
+- platform: github
+  url: https://github.com/
+  icon: github-circled
+
+- platform: instagram
+  url: https://instagram.com/
+  icon: instagram
+
+- platform: linkedin
+  url: https://www.linkedin.com/in/
+  icon: linkedin
+
+- platform: pinterest
+  url: https://www.pinterest.com/
+  icon: pinterest
+
+- platform: keyoxide
+  url: https://keyoxide.org/
+  icon: key
+
+- platform: feed
+  url: /atom.xml
+  icon: rss
+
+- platform: twitter
+  url: https://www.twitter.com/
+  icon: twitter
+
+- platform: stackoverflow
+  url: https://stackoverflow.com/
+  icon: stackoverflow
+
+- platform: youtube
+  url: https://youtube.com/
+  icon: youtube

@@ -1,0 +1,8 @@
+- name: "Project 1"
+  desc: "Description of project 1"
+  technologies: ["Python", "Django", "JavaScript", "React"]
+  link:
+    text: "Project 1"
+    url: "https://www.example.com"
+  start_date: 2021-01-01
+  end_date: 2023-11-01

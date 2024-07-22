@@ -1,0 +1,120 @@
+# The URL the site will be built for
+base_url = "https://zola-hacker.enginerd.io/"
+
+# The title of the site
+title = "Hacker theme"
+
+# The description of the site
+description = "Hacker is a theme for Zola"
+
+author = "John Doe"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to minify the HTML when building the site
+minify_html = false
+
+# Whether to generate an Atom feed
+generate_feeds = true
+
+# Taxonomies
+taxonomies = [{ name = "tags" }]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+highlight_theme = "charcoal"
+
+# Whether to render emojis
+render_emoji = true
+
+# Whether footnotes are rendered in the GitHub-style (at the bottom, with back references) or plain (in the place, where they are defined)
+bottom_footnotes = true
+
+[extra]
+title_separator = "|" # set as |, -, _, etc
+
+# The path to the logo of the site
+logo = "images/logo.png"
+
+# Google Analytics tracking ID
+google_analytics = "example-tracking-id"
+
+# Contact form script id that points to google macros (e.g. https://script.google.com/macros/s/<script-identifier>/exec)
+contact_form_script_id = "<script-identifier>"
+
+# Visitor notifier based on IFTTT + Webhooks. Sample here - /assets/js/monitor.js
+monitor = false
+
+# Menu items
+menu = [{ url = "/about", name = "About" }, { url = "/tags", name = "Tags" }]
+
+language_code = "en-US"
+
+# Enable OpenGraph metadata
+opengraph = true
+
+timezone = "America/New_York"
+# timeformat = ""
+
+# The path to cv file if you use cv shortcode
+# cv_file = "/files/Curriculum_Vitae.pdf"
+
+# provide link to edit page on github
+edit_page = true
+
+# GitHub settings that are used to generate the edit page link
+[extra.github]
+username = "en9inerd"
+repo = "zola-hacker"
+
+# Giscus settings
+[extra.giscus]
+repo = "en9inerd/zola-hacker"
+repo_id = "R_kgDOMZOW5g"
+category = "Comments"
+category_id = "DIC_kwDOMZOW5s4ChFNw"
+mapping = "og:title"
+strict = 0
+reactions_enabled = 1
+emit_metadata = 0
+input_position = "top"
+theme = "dark"
+lang = "en"
+loading = "lazy"
+crossorigin = "anonymous"
+
+# PGP key
+[extra.pgp_key]
+url = "https://keys.openpgp.org/vks/v1/by-fingerprint/0000000000000000000000000000000000000000"
+fingerprint = "0000 0000 0000 0000 0000 0000 0000 0000 0000 0000"
+
+# JSON-LD metadata
+[extra.bio]
+gender = "male"
+employer_name = "Unknown"
+employer_url = "https://unknown.com"
+job_title = "Software Engineer"
+links = [
+  "https://github.com/johndoe",
+  "https://linkedin.com/in/johndoe",
+  "https://twitter.com/johndoe",
+]
+
+# Social links
+[extra.social_links]
+email = "johndoe@example.com"
+github = "johndoe"
+linkedin = "johndoe"
+feed = true                    # to enable the Atom feed link in footer
+keyoxide = "aspe:host:XXXXXXX"
+# dribbble = ""
+# facebook = ""
+# flickr = ""
+# instagram = ""
+# pinterest = ""
+# twitter = ""
+# stackoverflow = ""           # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+# youtube = ""                 # channel/<your_long_string> or user/<user-name>

@@ -1,0 +1,19 @@
+{%- if config.extra.contact_form_script_id %}
+<form id="contact" class="contact-form" data-script-id="{{ config.extra.contact_form_script_id }}">
+  <div class="form-elements">
+    <input id="itsatrap" type="text" name="itsatrap" value="" />
+    <input id="name" type="text" name="name" placeholder="Name" maxlength="50" required>
+    <input id="email" type="email" name="email" placeholder="Email" maxlength="254" required>
+    <textarea id="body" name="body" placeholder="Message" maxlength="400" required></textarea>
+    <div class="submit-btn-align"><input id="submit" class="btn" type="submit" value="Send"></div>
+  </div>
+  <div class="thankyou-message">
+    <h2>
+      <em>Thanks</em>
+      for contacting me!
+      I will get back to you soon!
+    </h2>
+  </div>
+</form>
+<script type="text/javascript" src="{{ get_url(path="/js/form-submission-handler.js") }}"></script>
+{%- endif -%}

@@ -1,0 +1,5 @@
+- type: Programming Languages
+  tools: [JavaScript/TypeScript, Python, C/C++, Bash]
+
+- type: Frameworks
+  tools: [Angular, NestJS, LoopBack, Express.js, FastAPI, Django]

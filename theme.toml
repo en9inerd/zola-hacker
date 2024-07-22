@@ -1,0 +1,17 @@
+name = "zola-hacker"
+description = "Hacker is a theme for Zola"
+license = "MIT"
+homepage = "https://github.com/en9inerd/zola-hacker"
+min_version = "0.19.1"
+demo = "https://zola-hacker.enginerd.io/"
+
+[author]
+name = "Vladimir Loskutov"
+homepage = "https://github.com/en9inerd"
+
+[original]
+author = "Github Pages"
+homepage = "https://pages-themes.github.io/hacker/"
+repo = "https://github.com/pages-themes/hacker"
+
+[extra]

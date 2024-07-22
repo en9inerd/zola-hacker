@@ -1,0 +1,34 @@
+{%- extends "base.html" %}
+
+{%- block seo -%}
+  {{- super() }} 
+  {%- set title = "Not Found :(" %}
+  
+  {%- if config.title %}
+    {%- set title_addition = title_separator ~ config.title %}
+  {%- else %}
+    {%- set title_addition = "" %}
+  {%- endif %}
+
+  {{- macros::seo(title=title, title_addition=title_addition, description=config.description, is_404=true) }}
+{%- endblock seo %}
+
+{%- block content %}
+<article class="page">
+  <div class="header-container">
+    <h2>Not Found :(</h2>
+  </div>
+  <div class="entry">
+    <p>
+      Sorry, but the page you were trying to view does not exist.
+    </p>
+    <p>
+      It looks like this was the result of either:
+    </p>
+    <ul>
+      <li>A mistyped address</li>
+      <li>An out-of-date link</li>
+    </ul>
+  </div>
+</article>
+{%- endblock %}

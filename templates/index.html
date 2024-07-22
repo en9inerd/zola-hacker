@@ -1,0 +1,42 @@
+{%- extends "base.html" %}
+
+{%- block seo -%}
+  {{- super() }}
+
+  {%- if config.title %}
+    {%- set title = config.title %}
+  {%- else %}
+    {%- set title = "" %}
+  {%- endif %}
+
+  {%- if config.description and title %}
+    {%- set title_addition = title_separator ~ config.description %}
+  {%- elif config.description %}
+    {%- set title_addition = config.description %}
+  {%- else %}
+    {%- set title_addition = "" %}
+  {%- endif %}
+
+  {{- macros::seo(title=title, title_addition=title_addition, description=config.description, is_home=true) }}
+{%- endblock seo %}
+
+{%- block content %}
+<div class="pages">
+  {%- for page in paginator.pages %}
+    {{ macros::page_in_list(page=page) }}
+  {%- endfor %}
+</div>
+{%- if paginator.total_pages > 1 %}
+<div class="pagination">
+  {%- if paginator.previous %}
+  <a href="{{ paginator.previous | safe }}" class="previous-page">&lt;-- Previous</a>
+  {%- else %}
+  <span class="previous-page">&lt;-- Previous</span>
+  {%- endif -%}{%- if paginator.next %}
+  <a href="{{ paginator.next | safe }}" class="next-page">Next --&gt;</a>
+  {%- else %}
+  <span class="next-page">Next --&gt;</span>
+  {%- endif %}
+</div>
+{%- endif -%}
+{%- endblock %}

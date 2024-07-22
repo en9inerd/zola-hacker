@@ -1,0 +1,238 @@
+{%- macro page_in_list(page) -%}
+<article class="page">
+  <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+  <div class="page-info">
+    <time class="smaller" datetime="{{ page.date | date(format=" %Y-%m-%dT%H:%M:%S%:z") }}">
+      {{ macros::page_timestamp(page=page) }}
+    </time>
+  </div>
+
+  <div class="entry">
+    {%- if page.summary %}
+    {{ page.summary | safe }}
+    {%- elif page.description %}
+    {{ page.description | safe }}
+    {%- elif page.content %}
+    {{ page.content | safe }}
+    {%- endif -%}
+  </div>
+
+  <div class="page-footer">
+    {%- if page.summary %}
+    <a href="{{ page.permalink | safe }}" class="read-more">Read More</a>
+    {%- endif %}
+  </div>
+</article>
+{% endmacro page_in_list %}
+
+{% macro get_edit_url(page) %}
+<a href="{{ [" https://github.com", config.extra.github.username, config.extra.github.repo, "edit/master/content" ,
+  page.relative_path] | join(sep="/" ) | safe }}" title="Help improve page {{ page.permalink | safe }}">Improve this
+  page</a>
+{% endmacro get_edit_url %}
+
+{%- macro page_timestamp(page) -%}
+Posted on {{ page.date | date(format=config.extra.timeformat | default(value="%B %e, %Y at %H:%M %Z"), timezone=config.extra.timezone | default(value="America/New_York")) }}
+{%- endmacro page_timestamp %}
+
+{%- macro seo(
+  title="",
+  title_addition="",
+  description="",
+  type="website",
+  is_home=false,
+  is_404=false,
+  is_page=false
+  )
+%}
+
+{%- if page.date %}
+{%- set created_date = page.date | date(format="%+") %}
+{%- endif %}
+
+{%- if is_404 %}
+<meta name="robots" content="noindex, follow">
+{%- else %}
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+{%- endif %}
+{%- if current_url %}
+	{%- set page_url = current_url %}
+{%- else %}
+	{%- set page_url = get_url(path="404.html") %}
+{%- endif %}
+{%- if current_path %}
+	{%- set page_path = current_path %}
+{%- else %}
+	{%- set page_path = "/404.html" %}
+{%- endif %}
+
+<title>{{ title ~ title_addition }}</title>
+<meta name="generator" content="Zola">
+<meta name="description" content="{{ description }}">
+<meta name="author" content="{{ config.author }}">
+<link rel="canonical" href="{{ page_url | safe }}">
+
+{%- if config.extra.opengraph %}
+  <meta name="twitter:card" content="summary_large_image">
+  {%- if page.extra.images %}
+    {%- for image in page.extra.images %}
+      <meta name="twitter:image" content="{{ get_url(path=image) | safe }}">
+    {%- endfor %}
+  {%- elif section.extra.images %}
+    {%- for image in section.extra.images %}
+      <meta name="twitter:image" content="{{ get_url(path=image) | safe }}">
+    {%- endfor %}
+  {%- elif config.extra.logo %}
+    <meta name="twitter:image" content="{{ get_url(path=config.extra.logo) | safe }}">
+  {%- endif %}
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="{{ type }}">
+  <meta property="og:url" content="{{ page_url | safe }}">
+
+  {%- if page.extra.images %}
+    {%- for image in page.extra.images %}
+      <meta property="og:image" content="{{ get_url(path=image) | safe }}">
+    {%- endfor %}
+  {%- elif section.extra.images %}
+    {%- for image in section.extra.images %}
+      <meta property="og:image" content="{{ get_url(path=image) | safe }}">
+    {%- endfor %}
+  {%- elif config.extra.logo %}
+    <meta property="og:image" content="{{ get_url(path=config.extra.logo) | safe }}">
+  {%- endif %}
+
+  <meta property="og:site_name" content="{{ title }}">
+  <meta property="og:locale" content="{{ config.extra.language_code | default(value="en-US") | replace(from="-", to="_") }}">
+  {%- if page.date %}
+    <meta property="article:published_time" content="{{ created_date }}">
+  {%- endif %}
+{%- endif %}
+
+{%- if is_home %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "{{ get_url(path=page_path) | safe }}",
+    "name": "{{ title }}",
+    "description": "{{ description }}",
+    "image": "{{ get_url(path=config.extra.logo) | safe }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ config.author }}",
+      "url": "{{ get_url(path="about") | safe }}
+      "sameAs": [
+      {%- if config.extra.bio.links %}
+      {%- for link in config.extra.bio.links %}
+        "{{ link | safe }}"{% if not loop.last %},{% endif %}
+      {%- endfor %}
+      {%- endif %}
+      ]
+    }
+  }
+</script>
+{%- endif %}
+
+{%- if is_page %}
+  {%- if page.extra.seo.type is defined and page.extra.seo.type == "Organization" %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "{{ get_url(path=page_path) | safe }}",
+      "name": "{{ title }}",
+      "logo": "{{ get_url(path=config.extra.logo) | safe }}",
+      "sameAs": [
+      {%- if config.extra.bio.links %}
+      {%- for link in config.extra.bio.links %}
+        "{{ link | safe }}"{% if not loop.last %},{% endif %}
+      {%- endfor %}
+      {%- endif %}
+      ]
+    }
+    </script>
+  {%- endif %}
+  {%- if page.extra.seo.type is defined and page.extra.seo.type == "Person" %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{% if config.author %}{{ config.author }}{% else %}{{ title }}{% endif %}",
+      {%- if config.extra.social_links.email is defined %}"email": "{{ config.extra.social_links.email }}",{% endif %}
+      {% if config.extra.bio.gender %}"gender": "{{ config.extra.bio.gender }}",{% endif %}
+      "image": "{{ get_url(path=config.extra.logo) | safe }}",
+      "url": "{{ get_url(path=page_path) | safe }}",
+      {%- if config.extra.bio.job_title %}
+      "jobTitle": "{{ config.extra.bio.job_title }}",
+      {%- endif %}
+      {%- if config.extra.bio.employer_name and config.extra.bio.employer_url %}
+      "worksFor": {
+        "@type": "Organization",
+        "name": "{{ config.extra.bio.employer_name }}",
+        "url": "{{ config.extra.bio.employer_url | safe }}"
+      },
+      {%- endif %}
+      "sameAs": [
+      {%- if config.extra.bio.links %}
+      {%- for link in config.extra.bio.links %}
+        "{{ link | safe }}"{% if not loop.last %},{% endif %}
+      {%- endfor %}
+      {%- endif %}
+      ]
+    }
+    </script>
+  {%- endif %}
+  {%- if page.relative_path is defined and page.relative_path is starting_with("posts/") %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ get_url(path=page_path) | safe }}"
+      },
+      "headline": "{{ title }}",
+      "description": "{{ description }}",
+      "wordcount": "{{ page.word_count }}",
+      {%- if page.extra.images %}
+      "image": "{{ page.extra.images | first | safe }}",
+      {%- endif %}
+      "datePublished": "{{ created_date }}",
+      "dateModified": "{{ created_date }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ config.author }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "{{ title }}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ get_url(path=config.extra.logo) | safe }}"
+        }
+      }
+    }
+    </script>
+  {%- else %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "url": "{{ get_url(path=page_path) | safe }}",
+      "name": "{{ title }}",
+      "description": "{{ description }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ config.author }}"
+      }
+    }
+    </script>
+  {%- endif %}
+{%- endif %}
+{%- endmacro %}
