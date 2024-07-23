@@ -201,7 +201,7 @@ Posted on {{ page.date | date(format=config.extra.timeformat | default(value="%B
       "description": "{{ description }}",
       "wordcount": "{{ page.word_count }}",
       {%- if page.extra.images %}
-      "image": "{{ page.extra.images | first | safe }}",
+      "image": "{{ get_url(path=page.extra.images | first) | safe }}",
       {%- endif %}
       "datePublished": "{{ created_date }}",
       "dateModified": "{{ created_date }}",

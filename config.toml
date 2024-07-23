@@ -65,6 +65,23 @@ timezone = "America/New_York"
 # provide link to edit page on github
 edit_page = true
 
+# Social links
+social_links = [
+  { platform = "email", user_id = "johndoe@example.com" },
+  { platform = "github", user_id = "johndoe" },
+  { platform = "linkedin", user_id = "johndoe" },
+  { platform = "feed", user_id = true },
+  { platform = "keyoxide", user_id = "aspe:host:XXXXXXX" },
+  # { platform = "dribbble", user_id = "" },
+  # { platform = "facebook", user_id = "" },
+  # { platform = "flickr", user_id = "" },
+  # { platform = "instagram", user_id = "" },
+  # { platform = "pinterest", user_id = "" },
+  # { platform = "twitter", user_id = "" },
+  # { platform = "stackoverflow", user_id = "" },
+  # { platform = "youtube", user_id = "" },
+]
+
 # GitHub settings that are used to generate the edit page link
 [extra.github]
 username = "en9inerd"
@@ -102,19 +119,3 @@ links = [
   "https://linkedin.com/in/johndoe",
   "https://twitter.com/johndoe",
 ]
-
-# Social links
-[extra.social_links]
-email = "johndoe@example.com"
-github = "johndoe"
-linkedin = "johndoe"
-feed = true                    # to enable the Atom feed link in footer
-keyoxide = "aspe:host:XXXXXXX"
-# dribbble = ""
-# facebook = ""
-# flickr = ""
-# instagram = ""
-# pinterest = ""
-# twitter = ""
-# stackoverflow = ""           # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-# youtube = ""                 # channel/<your_long_string> or user/<user-name>

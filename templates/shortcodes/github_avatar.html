@@ -1,0 +1,4 @@
+{%- set size = size | default(value="400") %}
+{%- set url = "https://avatars.githubusercontent.com/" ~ config.extra.github.username ~ "?v=4" %}
+{%- set srcset = url ~ "&s=200 1x, " ~ url ~ "&s=400 2x, " ~ url ~ "&s=600 3x, " ~ url ~ "&s=800 4x" %}
+<img class="avatar" alt="{{ config.extra.github.username }}" width="{{ size }}" height="{{ size }}" data-proofer-ignore="true" src="{{ url ~ "&s=" ~ size | safe }}" srcset="{{ srcset | safe }}" />
