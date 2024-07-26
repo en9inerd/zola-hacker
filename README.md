@@ -118,13 +118,48 @@ The following options should be under the `[extra]` in `config.toml`
 - `menu` - set the menu items for your site
 - `contact_form_script_id` - the script id for the contact form based on [Google Script](https://github.com/en9inerd/learn-to-send-email-via-google-script-html-no-server)
 - `[extra.github]` - set the GitHub metadata for your site
-- `[extra.giscus]` - set the Giscus settings for your site
+- `[extra.giscus]` - set the Giscus settings for your site to enable the comments
 - `[extra.opengraph]` - set the Open Graph metadata for your site
+- `[extra.pgp_key]` - set pgp key in the footer for certain pages
+- `social_links` - set the social media links in the footer
 ...
 
 ### Templates
 
 All pages are extend to the `base.html`, and you can customize them as need.
+
+### Shortcodes
+
+The theme provides some shortcodes to help you write your content:
+
+`contact_form`
+The `contact_form` shortcode is based on [Google Apps Mail](https://github.com/en9inerd/learn-to-send-email-via-google-script-html-no-server) to send emails without a server.
+It depends on `contact_form_script_id` in the `config.toml`.
+
+```markdown
+{{ contact_form() }}
+```
+
+`cv`
+The `cv` shortcode is used to display the CV in the page. Data for CV is stored in yaml format in the `data/cv` directory.
+
+```markdown
+{{ cv() }}
+```
+
+`github_avatar`
+The `github_avatar` shortcode is used to display the GitHub avatar image. It depends on `extra.github.username` in the `config.toml`. Also, you can pass size as an argument.
+
+```markdown
+{{ github_avatar(size=100) }}
+```
+
+`projects`
+The `projects` shortcode is used to display repositories from GitHub. It depends on `extra.github.username` in the `config.toml` and `extra.repo_names` in page front matter to filter the repositories.
+
+```markdown
+{{ projects() }}
+```
 
 ## Reporting Issues
 
