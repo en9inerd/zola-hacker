@@ -1,6 +1,6 @@
 +++
 title = "Title"
-date = 2017-01-02 # Schedule a date
+date = 2017-01-10T00:00:00+00:00
 
 [taxonomies]
 tags = ["Features", "Markdown"]
