@@ -1,5 +1,5 @@
 {%- include "partials/svg-icons.html" -%}
-{%- if page.relative_path and 'about.md' in page.relative_path and config.extra.pgp_key %}
+{%- if page.extra.pgp_key_enabled and config.extra.pgp_key %}
 <p class="pgp-key">
   <a href="{{ config.extra.pgp_key.url }}">PGP:
     <code>{{ config.extra.pgp_key.fingerprint }}</code>
