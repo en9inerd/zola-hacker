@@ -1,12 +1,10 @@
-{% set disallows = [
-  "/tags*",
+{%- set disallows = [
   "/404.html",
   "/files/*"
-] %}
-
+] -%}
 User-agent: *
-{% for disallowed in disallows %}
+{%- for disallowed in disallows %}
 Disallow: {{ disallowed }}
-{% endfor %}
+{%- endfor %}
 Allow: /
 Sitemap: {{ get_url(path="sitemap.xml") }}
