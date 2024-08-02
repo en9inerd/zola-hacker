@@ -65,6 +65,9 @@ timezone = "America/New_York"
 # provide link to edit page on github
 edit_page = true
 
+# Use theme specific tags page based on templates/tags.html
+simplified_tags = false
+
 # Social links
 social_links = [
   { platform = "email", user_id = "johndoe@example.com" },

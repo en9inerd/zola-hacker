@@ -42,10 +42,16 @@
   <div class="page-info">
     {%- if page.taxonomies.tags %}
     <span>Tags = [
-      {% for tag in page.taxonomies.tags %}
-      <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}" class="page-tag">{{ tag }}</a>
+      {%- for tag in page.taxonomies.tags %}
+      {%- if config.extra.simplified_tags %}
+        {%- set term = get_taxonomy_term(kind="tags", term=tag) %}
+        {%- set tag_url = get_url(path="@/pages/tags.md") ~ "#" ~ term.slug %}
+      {%- else %}
+        {%- set tag_url = get_taxonomy_url(kind="tags", name=tag) %}
+      {%- endif %}
+      <a href="{{ tag_url | safe }}" class="page-tag">{{ tag }}</a>
       {%- if not loop.last %},
-      {% endif %}
+      {%- endif %}
       {%- endfor %} ]
     </span>{% endif %}
     <time class="page-time smaller" datetime="{{ page.date | date(format="%Y-%m-%dT%H:%M:%S%:z") }}">

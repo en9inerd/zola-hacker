@@ -26,9 +26,8 @@
 {% endmacro page_in_list %}
 
 {% macro get_edit_url(page) %}
-<a href="{{ [" https://github.com", config.extra.github.username, config.extra.github.repo, "edit/master/content" ,
-  page.relative_path] | join(sep="/" ) | safe }}" title="Help improve page {{ page.permalink | safe }}">Improve this
-  page</a>
+{%- set url = ["https://github.com", config.extra.github.username, config.extra.github.repo, "edit/master/content" , page.relative_path] | join(sep="/" ) %}
+<a href="{{ url | safe }}" title="Help improve page {{ page.permalink | safe }}">Improve this page</a>
 {% endmacro get_edit_url %}
 
 {%- macro page_timestamp(page) -%}
