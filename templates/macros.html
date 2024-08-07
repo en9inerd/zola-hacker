@@ -125,7 +125,7 @@ Posted on {{ page.date | date(format=config.extra.timeformat | default(value="%B
     "author": {
       "@type": "Person",
       "name": "{{ config.author }}",
-      "url": "{{ get_url(path="about") | safe }}
+      "url": "{{ get_url(path="about") | safe }}",
       "sameAs": [
       {%- if config.extra.bio.links %}
       {%- for link in config.extra.bio.links %}
