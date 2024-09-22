@@ -75,14 +75,13 @@ social_links = [
   { platform = "linkedin", user_id = "johndoe" },
   { platform = "feed", user_id = true },
   { platform = "keyoxide", user_id = "aspe:host:XXXXXXX" },
-  # { platform = "dribbble", user_id = "" },
   # { platform = "facebook", user_id = "" },
-  # { platform = "flickr", user_id = "" },
   # { platform = "instagram", user_id = "" },
   # { platform = "pinterest", user_id = "" },
   # { platform = "twitter", user_id = "" },
   # { platform = "stackoverflow", user_id = "" },
   # { platform = "youtube", user_id = "" },
+  # { platform = "telegram", user_id = "" },
 ]
 
 # GitHub settings that are used to generate the edit page link
