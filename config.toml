@@ -43,9 +43,10 @@ logo = "images/logo.png"
 google_analytics = "example-tracking-id"
 
 # Contact form script id that points to google macros (e.g. https://script.google.com/macros/s/<script-identifier>/exec)
+# More info about contact form based on google macros can be found here: https://github.com/en9inerd/learn-to-send-email-via-google-script-html-no-server
 contact_form_script_id = "<script-identifier>"
 
-# Visitor notifier based on IFTTT + Webhooks. Sample here - /assets/js/monitor.js
+# Visitor notifier based on IFTTT + Webhooks. Sample here - /static/js/monitor.js
 monitor = false
 
 # Menu items
