@@ -118,7 +118,7 @@ The following options should be under the `[extra]` in `config.toml`
 - `menu` - set the menu items for your site
 - `contact_form_script_id` - the script id for the contact form based on [Google Script](https://github.com/en9inerd/learn-to-send-email-via-google-script-html-no-server)
 - `[extra.github]` - set the GitHub metadata for your site
-- `[extra.giscus]` - set the Giscus settings for your site to enable the comments
+- `[extra.giscus]` - set the Giscus settings for your site to enable the comments. Please use own settings from the [Giscus](https://giscus.app/) website
 - `[extra.opengraph]` - set the Open Graph metadata for your site
 - `[extra.pgp_key]` - set pgp key in the footer for certain pages
 - `social_links` - set the social media links in the footer

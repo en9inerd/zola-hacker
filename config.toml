@@ -58,6 +58,10 @@ language_code = "en-US"
 opengraph = true
 
 timezone = "America/New_York"
+
+# Date and time format for displaying post dates. 
+# If left empty, the default format will be used: "%B %e, %Y at %H:%M %Z".
+# Example of a custom format: "%Y-%m-%d %H:%M:%S %z" (2024-02-04 15:30:00 +0000)
 # timeformat = ""
 
 # The path to cv file if you use cv shortcode
@@ -91,6 +95,8 @@ username = "en9inerd"
 repo = "zola-hacker"
 
 # Giscus settings
+# Please refer to https://giscus.app/ for more information
+# and don't use the same repo_id and category_id as in the example below
 [extra.giscus]
 repo = "en9inerd/zola-hacker"
 repo_id = "R_kgDOMZOW5g"
