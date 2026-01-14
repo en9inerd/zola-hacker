@@ -81,10 +81,10 @@ Just run `zola serve` in the root path of the project:
 zola serve
 ```
 
-Command will start the Zola development web server accessible by default at
+This command will start the Zola development web server accessible by default at
 `http://127.0.0.1:1111`. Saved changes will live reload in the browser.
 
-## Customisation
+## Customization
 
 You can customize your configurations, templates and content for yourself. Look
 at the `config.toml`, `theme.toml`, `content` files and templates files in this
@@ -126,7 +126,7 @@ The following options should be under the `[extra]` in `config.toml`
 
 ### Templates
 
-All pages are extend to the `base.html`, and you can customize them as need.
+All pages extend the `base.html`, and you can customize them as need.
 
 ### Shortcodes
 
