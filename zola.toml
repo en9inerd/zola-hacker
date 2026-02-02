@@ -23,9 +23,8 @@ taxonomies = [{ name = "tags" }]
 
 [markdown]
 # Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = true
-highlight_theme = "charcoal"
+[markdown.highlighting]
+theme = "dark-plus"
 
 # Whether to render emojis
 render_emoji = true
