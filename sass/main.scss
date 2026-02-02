@@ -73,7 +73,8 @@ header h1 {
   margin: 0 0 0 -40px;
   font-weight: bold;
   color: $amber; //$header;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.1),
     0 0 5px rgba(255, 191, 0, 0.1),
     0 0 10px rgba(255, 191, 0, 0.1);
   letter-spacing: -1px;
@@ -114,7 +115,7 @@ main {
 }
 
 main img {
-  max-width: 100%
+  max-width: 100%;
 }
 
 h1,
@@ -126,7 +127,8 @@ h6 {
   font-weight: normal;
   color: $header;
   letter-spacing: -0.03em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.1),
     0 0 5px rgba(255, 191, 0, 0.1),
     0 0 10px rgba(255, 191, 0, 0.1);
 }
@@ -166,7 +168,7 @@ dt {
 }
 
 ul li {
-  list-style-type: '>> ';
+  list-style-type: ">> ";
 
   &::marker {
     color: $amber;
@@ -195,6 +197,10 @@ pre {
 
   &[data-linenos] {
     padding: 1rem 0;
+  }
+
+  .giallo-ln {
+    padding-right: 1rem;
   }
 
   table {
@@ -245,7 +251,13 @@ hr {
 
 .btn {
   display: inline-block;
-  background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
+  background: -webkit-linear-gradient(
+    top,
+    rgba(40, 40, 40, 0.3),
+    rgba(35, 35, 35, 0.3) 50%,
+    rgba(10, 10, 10, 0.3) 50%,
+    rgba(0, 0, 0, 0.3)
+  );
   padding: 8px 18px;
   border-radius: 50px;
   border: 2px solid rgba(0, 0, 0, 0.7);
@@ -261,7 +273,13 @@ hr {
 }
 
 .btn:hover {
-  background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
+  background: -webkit-linear-gradient(
+    top,
+    rgba(40, 40, 40, 0.6),
+    rgba(35, 35, 35, 0.6) 50%,
+    rgba(10, 10, 10, 0.8) 50%,
+    rgba(0, 0, 0, 0.8)
+  );
 }
 
 .btn .icon {
@@ -290,10 +308,9 @@ a {
 
 main,
 footer {
-
   a:hover,
   a:active {
-    text-shadow: 0 0 5px rgba(104, 182, 255, 1.0);
+    text-shadow: 0 0 5px rgba(104, 182, 255, 1);
   }
 
   a.btn:hover,
@@ -303,14 +320,14 @@ footer {
 }
 
 #a-title h1 {
-
   /* Clearfix */
   & {
     text-decoration: none;
   }
 
   &:hover {
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3),
+    text-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.3),
       0 0 5px rgba(255, 191, 0, 0.3),
       0 0 10px rgba(255, 191, 0, 0.3);
   }
@@ -327,7 +344,8 @@ footer {
   font-weight: normal;
   color: $amber;
   letter-spacing: -0.03em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.1),
     0 0 5px rgba(255, 191, 0, 0.1),
     0 0 10px rgba(255, 191, 0, 0.1);
 }
@@ -336,13 +354,13 @@ footer {
   margin-top: 3rem;
 }
 
-.pages>.page {
+.pages > .page {
   padding-bottom: 2em;
   margin-bottom: 1.8em;
   border-bottom: 1px dashed $amber;
 }
 
-.pages>.page:last-child {
+.pages > .page:last-child {
   padding-bottom: 1em;
   border-bottom: none;
 }
@@ -452,8 +470,8 @@ footer {
 /* Feedback form
 */
 
-input[type=text],
-input[type=email],
+input[type="text"],
+input[type="email"],
 textarea {
   width: 100%;
   max-width: 820px;
@@ -468,8 +486,8 @@ textarea {
   margin-bottom: 6px;
 }
 
-input[type=text]:focus,
-input[type=email]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
 textarea:focus {
   outline: none;
   border: 1px solid $chelsea-cucumber;
