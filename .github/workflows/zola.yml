@@ -35,7 +35,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build Zola site
-        uses: shalzz/zola-deploy-action@v0.19.1
+        uses: shalzz/zola-deploy-action@v0.22.1
         env:
           BUILD_ONLY: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
