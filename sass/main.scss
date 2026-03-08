@@ -494,7 +494,7 @@ textarea:focus {
 }
 
 :not(output):user-invalid {
-  border: 1px solid red;
+  border: 1px solid $apple-blossom;
   border-radius: 2px;
   box-shadow: none;
 }
@@ -513,12 +513,18 @@ textarea:focus {
   text-align: right;
 }
 
-#itsatrap {
+input[name="itsatrap"],
+input[name="_gotcha"] {
   display: none;
 }
 
-.thankyou-message {
+.thankyou-message,
+.error-message {
   display: none;
+}
+
+.error-message {
+  color: $apple-blossom;
 }
 
 /* Curriculum Vitae */
