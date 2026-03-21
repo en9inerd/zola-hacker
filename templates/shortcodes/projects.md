@@ -7,6 +7,6 @@
     {%- set repository = load_data(url=url, format="json") %}
   {%- endif %}
   {%- if repository %}
-  * [{{ repository.name }}]({{ repository.html_url }})<br>{{ repository.description }}<br><br>
+  * [{{ repository.name }}]({{ repository.html_url }}){% if repository.homepage %} · [{{ repository.homepage }}]({{ repository.homepage }}){% endif %}<br>{{ repository.description }}<br><br>
   {%- endif %}
 {%- endfor %}
