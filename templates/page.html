@@ -25,7 +25,7 @@
     {%- set type = "website" %}
   {%- endif %}
   
-  {{- macros::seo(title=title, title_addition=title_addition, description=description, type=type, is_page=true) }}
+  {{<seo title title_addition description type is_page={true} />}}
 {% endblock seo %}
 
 {%- block content %}
@@ -34,7 +34,7 @@
     <h2>{{ page.title }}</h2>
     {%- if config.extra.edit_page %}
     <div class="improve hide-on-mobiles">
-      {{ macros::get_edit_url(page=page) }}
+      {{<get_edit_url page />}}
     </div>
     {%- endif %}
   </div>
@@ -55,7 +55,7 @@
       {%- endfor %} ]
     </span>{% endif %}
     <time class="page-time smaller" datetime="{{ page.date | date(format="%Y-%m-%dT%H:%M:%S%:z") }}">
-      {{ macros::page_timestamp(page=page) }}
+      {{<page_timestamp page />}}
     </time>
   </div>
   {%- endif %}

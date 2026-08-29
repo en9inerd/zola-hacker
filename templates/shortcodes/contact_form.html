@@ -1,3 +1,4 @@
+{%- component contact_form() -%}
 {%- if config.extra.contact_form_script_id %}
 <form id="contact" class="contact-form" data-script-id="{{ config.extra.contact_form_script_id }}">
   <div class="form-elements">
@@ -21,3 +22,4 @@
 </form>
 <script src="{{ get_url(path="/js/form-submission-handler.js") }}"></script>
 {%- endif -%}
+{%- endcomponent contact_form %}

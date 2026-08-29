@@ -10,4 +10,4 @@ no_page_info = true
 type = "Person"
 +++
 
-{{ cv() }}
+{{<cv />}}

@@ -11,14 +11,14 @@
     {%- set title_addition = "" %}
   {%- endif %}
 
-  {{- macros::seo(title=title, title_addition=title_addition, description=description, is_page=true) }}
+  {{<seo title title_addition description is_page={true} />}}
 {%- endblock seo %}
 
 {% block content %}
 <div class="pages">
   <h2>[ {{ term.name }} ]</h2>
   {% for page in term.pages %}
-    {{ macros::page_in_list(page=page) }}
+    {{<page_in_list page />}}
   {%- endfor %}
 </div>
 {% endblock %}

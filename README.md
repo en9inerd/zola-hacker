@@ -8,7 +8,7 @@ Zola Hacker is a minimalistic theme for Zola, inspired by the [Hacker theme](htt
 
 ## Requirements
 
-Before using the theme, you need to install the [Zola](https://www.getzola.org/documentation/getting-started/installation/) ≥ 0.19.1.
+Before using the theme, you need to install the [Zola](https://www.getzola.org/documentation/getting-started/installation/) ≥ 0.23.1.
 
 ## Quick Start
 

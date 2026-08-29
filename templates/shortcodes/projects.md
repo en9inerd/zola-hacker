@@ -1,3 +1,4 @@
+{%- component projects() -%}
 {%- set token = get_env(name="GITHUB_TOKEN", default="") %}
 {%- for repo_name in page.extra.repo_names %}
   {%- set url = "https://api.github.com/repos/" ~ config.extra.github.username ~ "/" ~ repo_name %}
@@ -10,3 +11,4 @@
   * [{{ repository.name }}]({{ repository.html_url }}){% if repository.homepage %} · [{{ repository.homepage }}]({{ repository.homepage }}){% endif %}<br>{{ repository.description }}<br><br>
   {%- endif %}
 {%- endfor %}
+{%- endcomponent projects %}

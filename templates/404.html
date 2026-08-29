@@ -10,7 +10,7 @@
     {%- set title_addition = "" %}
   {%- endif %}
 
-  {{- macros::seo(title=title, title_addition=title_addition, description=config.description, is_404=true) }}
+  {{<seo title title_addition description={config.description} is_404={true} />}}
 {%- endblock seo %}
 
 {%- block content %}

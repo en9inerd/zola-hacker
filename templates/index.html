@@ -17,13 +17,13 @@
     {%- set title_addition = "" %}
   {%- endif %}
 
-  {{- macros::seo(title=title, title_addition=title_addition, description=config.description, is_home=true) }}
+  {{<seo title title_addition description={config.description} is_home={true} />}}
 {%- endblock seo %}
 
 {%- block content %}
 <div class="pages">
   {%- for page in paginator.pages %}
-    {{ macros::page_in_list(page=page) }}
+    {{<page_in_list page />}}
   {%- endfor %}
 </div>
 {%- if paginator.total_pages > 1 %}

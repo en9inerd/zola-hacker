@@ -11,7 +11,7 @@
     {%- set title_addition = "" %}
   {%- endif %}
 
-  {{- macros::seo(title=title, title_addition=title_addition, description=description, is_page=true) }}
+  {{<seo title title_addition description is_page={true} />}}
 {%- endblock seo %}
 
 {%- block content %}

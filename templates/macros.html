@@ -1,9 +1,9 @@
-{%- macro page_in_list(page) -%}
+{%- component page_in_list(page) -%}
 <article class="page">
   <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
   <div class="page-info">
     <time class="smaller" datetime="{{ page.date | date(format="%Y-%m-%dT%H:%M:%S%:z") }}">
-      {{ macros::page_timestamp(page=page) }}
+      {{<page_timestamp page />}}
     </time>
   </div>
 
@@ -23,18 +23,18 @@
     {%- endif %}
   </div>
 </article>
-{% endmacro page_in_list %}
+{% endcomponent page_in_list %}
 
-{% macro get_edit_url(page) %}
+{% component get_edit_url(page) %}
 {%- set url = ["https://github.com", config.extra.github.username, config.extra.github.repo, "edit/master/content" , page.relative_path] | join(sep="/" ) %}
 <a href="{{ url | safe }}" title="Help improve page {{ page.permalink | safe }}">Improve this page</a>
-{% endmacro get_edit_url %}
+{% endcomponent get_edit_url %}
 
-{%- macro page_timestamp(page) -%}
+{%- component page_timestamp(page) -%}
 Posted on {{ page.date | date(format=config.extra.timeformat | default(value="%B %e, %Y at %H:%M %Z"), timezone=config.extra.timezone | default(value="America/New_York")) }}
-{%- endmacro page_timestamp %}
+{%- endcomponent page_timestamp %}
 
-{%- macro seo(
+{%- component seo(
   title="",
   title_addition="",
   description="",
@@ -234,4 +234,4 @@ Posted on {{ page.date | date(format=config.extra.timeformat | default(value="%B
     </script>
   {%- endif %}
 {%- endif %}
-{%- endmacro %}
+{%- endcomponent seo %}
