@@ -13,7 +13,7 @@
     {%- set title = config.title %}
   {%- endif %}
 
-  {%- if page.relative_path is starting_with("posts/") %}
+  {%- if page.relative_path is starting_with(pat="posts/") %}
     {%- set description = page.content | spaceless | striptags | truncate(length=200) %}
     {%- set type = "article" %}
   {%- else %}
@@ -25,7 +25,7 @@
     {%- set type = "website" %}
   {%- endif %}
   
-  {{<seo title title_addition description type is_page={true} />}}
+  {{<seo config page current_url current_path title title_addition description type is_page={true} />}}
 {% endblock seo %}
 
 {%- block content %}
@@ -34,7 +34,7 @@
     <h2>{{ page.title }}</h2>
     {%- if config.extra.edit_page %}
     <div class="improve hide-on-mobiles">
-      {{<get_edit_url page />}}
+      {{<get_edit_url page config />}}
     </div>
     {%- endif %}
   </div>
@@ -55,14 +55,14 @@
       {%- endfor %} ]
     </span>{% endif %}
     <time class="page-time smaller" datetime="{{ page.date | date(format="%Y-%m-%dT%H:%M:%S%:z") }}">
-      {{<page_timestamp page />}}
+      {{<page_timestamp page config />}}
     </time>
   </div>
   {%- endif %}
   <div class="entry">
     {{ page.content | safe }}
   </div>
-  {%- if page.relative_path is starting_with("posts/") and not page.extra.no_comments and config.extra.giscus %}
+  {%- if page.relative_path is starting_with(pat="posts/") and not page.extra.no_comments and config.extra.giscus %}
   {%- include "partials/giscus.html" -%}
   {%- endif %}
 </article>

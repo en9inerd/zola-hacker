@@ -17,13 +17,13 @@
     {%- set title_addition = "" %}
   {%- endif %}
 
-  {{<seo title title_addition description={config.description} is_home={true} />}}
+  {{<seo config section current_url current_path title title_addition is_home={true} />}}
 {%- endblock seo %}
 
 {%- block content %}
 <div class="pages">
   {%- for page in paginator.pages %}
-    {{<page_in_list page />}}
+    {{<page_in_list page config />}}
   {%- endfor %}
 </div>
 {%- if paginator.total_pages > 1 %}

@@ -1,4 +1,4 @@
-{%- component cv() -%}
+{%- component cv(config) -%}
 {%- set cv_education = load_data(path="data/cv/education.yml") -%}
 {%- set cv_summary = load_data(path="data/cv/summary.yml") -%}
 {%- set cv_experience = load_data(path="data/cv/experience.yml") | sort(attribute="start_date") | reverse -%}

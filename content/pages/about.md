@@ -17,4 +17,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus auctor
 
 ## Contact Me
 
-{{<contact_form />}}
+{{<contact_form config />}}

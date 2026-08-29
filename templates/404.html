@@ -10,7 +10,7 @@
     {%- set title_addition = "" %}
   {%- endif %}
 
-  {{<seo title title_addition description={config.description} is_404={true} />}}
+  {{<seo config title title_addition is_404={true} />}}
 {%- endblock seo %}
 
 {%- block content %}

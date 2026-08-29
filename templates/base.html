@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-{%- set lang = config.extra.language_code | default(value="en-US") -%}
-<html lang="{{ lang }}" xml:lang="{{ lang }}">
-  
+{%- set html_lang = config.extra.language_code | default(value="en-US") -%}
+<html lang="{{ html_lang }}" xml:lang="{{ html_lang }}">
+
 <head>
   {% include "partials/head.html" -%}
   {%- block seo -%}

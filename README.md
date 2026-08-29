@@ -8,7 +8,7 @@ Zola Hacker is a minimalistic theme for Zola, inspired by the [Hacker theme](htt
 
 ## Requirements
 
-Before using the theme, you need to install the [Zola](https://www.getzola.org/documentation/getting-started/installation/) ≥ 0.23.1.
+Before using the theme, you need to install the [Zola](https://www.getzola.org/documentation/getting-started/installation/) ≥ 0.23.4.
 
 ## Quick Start
 
@@ -128,38 +128,55 @@ The following options should be under the `[extra]` in `zola.toml`
 
 All pages extend the `base.html`, and you can customize them as need.
 
-### Shortcodes
+### Components
 
-The theme provides some shortcodes to help you write your content:
+The theme provides some components to help you write your content. Zola 0.23
+replaced shortcodes with [Tera components](https://www.getzola.org/documentation/templates/overview/),
+so they are called with the `{{<name ... />}}` syntax instead of `name()`.
+
+Components are hygienic: they only see the arguments you pass, so `config` (and
+`page`, where the component reads front matter) must be passed explicitly. Values
+that are not strings are wrapped in braces, for example `size={100}`.
 
 `contact_form`
-The `contact_form` shortcode is based on [Google Apps Mail](https://github.com/en9inerd/learn-to-send-email-via-google-script-html-no-server) to send emails without a server.
+The `contact_form` component is based on [Google Apps Mail](https://github.com/en9inerd/learn-to-send-email-via-google-script-html-no-server) to send emails without a server.
 It depends on `contact_form_script_id` in the `zola.toml`.
 
 ```markdown
-{{ contact_form() }}
+{{<contact_form config />}}
 ```
 
 `cv`
-The `cv` shortcode is used to display the CV in the page. Data for CV is stored in yaml format in the `data/cv` directory.
+The `cv` component is used to display the CV in the page. Data for CV is stored in yaml format in the `data/cv` directory.
 
 ```markdown
-{{ cv() }}
+{{<cv config />}}
 ```
 
 `github_avatar`
-The `github_avatar` shortcode is used to display the GitHub avatar image. It depends on `extra.github.username` in the `zola.toml`. Also, you can pass size as an argument.
+The `github_avatar` component is used to display the GitHub avatar image. It depends on `extra.github.username` in the `zola.toml`. Also, you can pass size as an argument.
 
 ```markdown
-{{ github_avatar(size=100) }}
+{{<github_avatar config size={100} />}}
 ```
 
 `projects`
-The `projects` shortcode is used to display repositories from GitHub. It depends on `extra.github.username` in the `zola.toml` and `extra.repo_names` in page front matter to filter the repositories.
+The `projects` component is used to display repositories from GitHub. It depends on `extra.github.username` in the `zola.toml` and `extra.repo_names` in page front matter to filter the repositories.
 
 ```markdown
-{{ projects() }}
+{{<projects page config />}}
 ```
+
+### Migrating from a pre-0.23 version of this theme
+
+Zola 0.23 removed shortcodes and macros, so upgrading is a breaking change:
+
+- Rewrite shortcode calls in your content using the component syntax above.
+- Remove `{% import "macros.html" as macros %}`; components are registered
+  globally and no longer need importing. Calls such as `macros::seo(...)` become
+  `{{<seo ... />}}`.
+- If you override `base.html`, note that the `lang` variable was renamed to
+  `html_lang` — it shadowed Zola's own `lang` and broke `get_section`.
 
 ## Reporting Issues
 

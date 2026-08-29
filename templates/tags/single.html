@@ -11,14 +11,14 @@
     {%- set title_addition = "" %}
   {%- endif %}
 
-  {{<seo title title_addition description is_page={true} />}}
+  {{<seo config current_url current_path title title_addition description is_page={true} />}}
 {%- endblock seo %}
 
 {% block content %}
 <div class="pages">
   <h2>[ {{ term.name }} ]</h2>
   {% for page in term.pages %}
-    {{<page_in_list page />}}
+    {{<page_in_list page config />}}
   {%- endfor %}
 </div>
 {% endblock %}

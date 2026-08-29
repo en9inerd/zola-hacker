@@ -1,4 +1,4 @@
-{%- component projects() -%}
+{%- component projects(page, config) -%}
 {%- set token = get_env(name="GITHUB_TOKEN", default="") %}
 {%- for repo_name in page.extra.repo_names %}
   {%- set url = "https://api.github.com/repos/" ~ config.extra.github.username ~ "/" ~ repo_name %}
