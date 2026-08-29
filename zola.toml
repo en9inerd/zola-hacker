@@ -26,12 +26,12 @@ taxonomies = [{ name = "tags" }]
 
 # Whether footnotes are rendered in the GitHub-style (at the bottom, with back references) or plain (in the place, where they are defined)
 bottom_footnotes = true
+#
+# Whether to render emojis
+render_emoji = true
 
 [markdown.highlighting]
 theme = "dark-plus"
-
-# Whether to render emojis
-render_emoji = true
 
 [extra]
 title_separator = "|" # set as |, -, _, etc
